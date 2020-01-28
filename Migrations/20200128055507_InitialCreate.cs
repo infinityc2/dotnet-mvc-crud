@@ -14,10 +14,11 @@ namespace WebApplication.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Title = table.Column<string>(nullable: true),
-                    releaseDate = table.Column<DateTime>(nullable: false),
-                    Genre = table.Column<string>(nullable: true),
-                    Price = table.Column<decimal>(nullable: false)
+                    Title = table.Column<string>(maxLength: 60, nullable: false),
+                    ReleaseDate = table.Column<DateTime>(nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    Genre = table.Column<string>(maxLength: 30, nullable: false),
+                    Rating = table.Column<string>(maxLength: 5, nullable: false)
                 },
                 constraints: table =>
                 {

@@ -25,13 +25,22 @@ namespace WebApplication.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Genre");
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasMaxLength(30);
 
-                    b.Property<decimal>("Price");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
 
-                    b.Property<string>("Title");
+                    b.Property<string>("Rating")
+                        .IsRequired()
+                        .HasMaxLength(5);
 
-                    b.Property<DateTime>("releaseDate");
+                    b.Property<DateTime>("ReleaseDate");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(60);
 
                     b.HasKey("Id");
 
